@@ -1,4 +1,4 @@
-import { Router } from "express"
+import e, { Router } from "express"
 import { Dream, IDream } from "../models/dream";
 
 const router = Router();
@@ -55,7 +55,7 @@ router.put("/:id", async (req, res) => {
         res.status(500).send();
         console.error(error);
     }
-})
+});
 
 
 // Delete a dream
@@ -66,9 +66,54 @@ router.delete("/:id", async (req, res) => {
         res.status(200).json(deletedDream);
     } catch (error) {
         res.status(500).send();
-        console.error(error.message);
+        console.error(error);
     }
-})
+});
+
+// Search for a dream
+router.get("/search", async (req, res) => {
+    let title = req.query.title;
+    let type = req.query.type;
+    let startDate = req.query.startDate;
+    let endDate = req.query.endDate;
+
+    try {
+        if (startDate !== undefined && endDate !== undefined) {
+            if (title !== undefined && type !== undefined) {
+                const foundDreams = await Dream
+                .find()
+                .where('title').equals(title)
+                .where('type').equals(type)
+                .$where('date')
+                //.where('date').gte({new Date(startDate).getTime()})
+            }
+            if (title !== undefined) {
+                const foundDreams = await Dream
+                .find()
+                .where('title').equals(title).lean();
+                res.status(200).json(foundDreams);
+            } else if ( type !== undefined ) {
+                const foundDreams = await Dream
+                .find()
+                .where('type').equals(type).lean()
+                res.status(200).json(foundDreams);
+            }
+            // Add find() by date
+            const foundDreams = await Dream.find(
+                {date: {$gte: new Date(startDate.toString()), $lte: new Date(endDate.toString())}}).lean()
+            res.status(200).json(foundDreams);
+        } 
+    } catch (error) {
+        res.status(400).send();
+        console.error(error)
+    }
+    
+
+    
+
+    
+        // const foundDreams = await Dream.find({title: {}}).lean();    
+});
 
 
 export default router;
