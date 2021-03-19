@@ -3,6 +3,7 @@ import { connect, port } from './database';
 import morgan from 'morgan';
 import bodyParser from 'body-parser';
 import typeController from './controllers/typeController';
+import dreamController from './controllers/dreamController';
 
 // Initializing the express aplication
 const app = express();
@@ -16,6 +17,7 @@ app.use(bodyParser.urlencoded({
 
 // Connecting controllers to the server application
 app.use("/types", typeController);
+app.use("/dreams", dreamController);
 
 
 // Connecting to the database and starting the express application
