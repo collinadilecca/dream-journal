@@ -1,0 +1,523 @@
+{
+	"info": {
+		"_postman_id": "f4274b14-9591-45fa-856c-5b623467b6ea",
+		"name": "Dream Journal ",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create a new dream",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"Dream 3\",\r\n    \"description\": \"aaeeeeaaa\",\r\n    \"date\": \"2011-03-22\",\r\n    \"type\": \"sad\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/dreams/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"dreams",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Create a new dream - example",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Dream 1\",\r\n    \"description\": \"Was a good dream\",\r\n    \"date\": \"2011-11-15\",\r\n    \"type\": \"happy\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/dreams/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"dreams",
+								""
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "142"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"8e-salch/zhx8fcTc2eQrk+nvphexA\""
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 19 Mar 2021 12:45:32 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"_id\": \"60549cec05ed9112a8d45284\",\n    \"title\": \"Dream 1\",\n    \"description\": \"Was a good dream\",\n    \"date\": \"2011-11-15T00:00:00.000Z\",\n    \"type\": \"happy\",\n    \"__v\": 0\n}"
+				}
+			]
+		},
+		{
+			"name": "Get all dreams",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4000/dreams/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"dreams",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get all dreams - Example",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/dreams/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"dreams",
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "410"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"19a-Z+GP35b/mHWiO1AFKbX0sZnclM8\""
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 19 Mar 2021 12:47:59 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"_id\": \"60549cec05ed9112a8d45284\",\n        \"title\": \"Dream 1\",\n        \"description\": \"Was a good dream\",\n        \"date\": \"2011-11-15T00:00:00.000Z\",\n        \"type\": \"happy\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"60549d4905ed9112a8d45285\",\n        \"title\": \"Dream 2\",\n        \"description\": \"aaaaa\",\n        \"date\": \"2011-01-10T00:00:00.000Z\",\n        \"type\": \"scary\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"60549d5d05ed9112a8d45286\",\n        \"title\": \"Dream 3\",\n        \"description\": \"aaeeeeaaa\",\n        \"date\": \"2011-03-22T00:00:00.000Z\",\n        \"type\": \"sad\",\n        \"__v\": 0\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Get a single dream by id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4000/dreams/60549cec05ed9112a8d45284",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"dreams",
+						"60549cec05ed9112a8d45284"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get a single dream by id - Example",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/dreams/60549cec05ed9112a8d45284",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"dreams",
+								"60549cec05ed9112a8d45284"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "142"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"8e-salch/zhx8fcTc2eQrk+nvphexA\""
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 19 Mar 2021 12:51:34 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"_id\": \"60549cec05ed9112a8d45284\",\n    \"title\": \"Dream 1\",\n    \"description\": \"Was a good dream\",\n    \"date\": \"2011-11-15T00:00:00.000Z\",\n    \"type\": \"happy\",\n    \"__v\": 0\n}"
+				}
+			]
+		},
+		{
+			"name": "Update an existing dream",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"description\": \"cool description\",\r\n    \"type\": \"exciting\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/dreams/60549d4905ed9112a8d45285",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"dreams",
+						"60549d4905ed9112a8d45285"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Update an existing dream",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"description\": \"cool description\",\r\n    \"type\": \"exciting\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/dreams/60549d4905ed9112a8d45285",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"dreams",
+								"60549d4905ed9112a8d45285"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "145"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"91-2+Et4HDuZ/ootHNEWYJRypLlP/0\""
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 19 Mar 2021 12:56:30 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"_id\": \"60549d4905ed9112a8d45285\",\n    \"title\": \"Dream 2\",\n    \"description\": \"cool description\",\n    \"date\": \"2011-01-10T00:00:00.000Z\",\n    \"type\": \"exciting\",\n    \"__v\": 0\n}"
+				}
+			]
+		},
+		{
+			"name": "Delete a dream",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4000/dreams/6054a266d7028152c4dc8893",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"dreams",
+						"6054a266d7028152c4dc8893"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Delete a dream - Example",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/dreams/6054a266d7028152c4dc8893",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"dreams",
+								"6054a266d7028152c4dc8893"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "133"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"85-vS+W+Htv/0mAaSpRB5iXRd+VXBI\""
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 19 Mar 2021 13:17:37 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"_id\": \"6054a266d7028152c4dc8893\",\n    \"title\": \"Dream 3\",\n    \"description\": \"aaeeeeaaa\",\n    \"date\": \"2011-03-22T00:00:00.000Z\",\n    \"type\": \"sad\",\n    \"__v\": 0\n}"
+				}
+			]
+		},
+		{
+			"name": "Search for a dream",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4000/dreams/?perPage=1&startDate=2011-01-15&endDate=2011-04-15&title=D&sortBy=type&order=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"dreams",
+						""
+					],
+					"query": [
+						{
+							"key": "perPage",
+							"value": "1"
+						},
+						{
+							"key": "startDate",
+							"value": "2011-01-15"
+						},
+						{
+							"key": "endDate",
+							"value": "2011-04-15"
+						},
+						{
+							"key": "title",
+							"value": "D"
+						},
+						{
+							"key": "sortBy",
+							"value": "type"
+						},
+						{
+							"key": "order",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Search for a dream - Example",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/dreams/?perPage=1&startDate=2011-01-15&endDate=2011-04-15&title=D&sortBy=type&order=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"dreams",
+								""
+							],
+							"query": [
+								{
+									"key": "perPage",
+									"value": "1"
+								},
+								{
+									"key": "startDate",
+									"value": "2011-01-15"
+								},
+								{
+									"key": "endDate",
+									"value": "2011-04-15"
+								},
+								{
+									"key": "title",
+									"value": "D"
+								},
+								{
+									"key": "sortBy",
+									"value": "type"
+								},
+								{
+									"key": "order",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "403"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"193-yY9B3dKfnOB+o8P0EEFbwRH96QY\""
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 19 Mar 2021 18:09:45 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"_id\": \"6054a265d7028152c4dc8892\",\n        \"title\": \"Dream 3\",\n        \"description\": \"aaeeeeaaa\",\n        \"date\": \"2011-03-22T00:00:00.000Z\",\n        \"type\": \"sad\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"6054a266d7028152c4dc8894\",\n        \"title\": \"Dream 3\",\n        \"description\": \"aaeeeeaaa\",\n        \"date\": \"2011-03-22T00:00:00.000Z\",\n        \"type\": \"sad\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"6054a267d7028152c4dc8895\",\n        \"title\": \"Dream 3\",\n        \"description\": \"aaeeeeaaa\",\n        \"date\": \"2011-03-22T00:00:00.000Z\",\n        \"type\": \"sad\",\n        \"__v\": 0\n    }\n]"
+				}
+			]
+		}
+	]
+}
